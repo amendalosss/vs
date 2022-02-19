@@ -4,6 +4,47 @@ public class example
     static List<List<Integer>> New_edition_ID = new ArrayList<List<Integer>>();
     static List<List<Integer>> New_category_ID = new ArrayList<List<Integer>>();
     static List<List<Integer>> New_Rates = new ArrayList<List<Integer>>();
+
+    public static void combine(List<Integer> edID,List<Integer> catID,List<Integer> rates) 
+    {
+        int j=0;
+        int i=0;
+        for (i = 0; i <edID.size();i++) 
+        {
+            for(j=1; j<=edID.size();j++)
+            {
+                if(edID.get(i)==edID.get(j))
+                {
+                    New_edition_ID.get(i).add(i,edID.get(j));
+                    New_category_ID.get(i).add(i,catID.get(i));
+                    for(int k=0;k<rates.size();k++)
+                    {
+                        New_Rates.get(i).add(i,rates.get(k));
+                    }
+                }    
+            }
+        }
+    }
+
+    // public static void printcombination() 
+    // {
+    //     System.out.println("New combined data is:");
+    //     System.out.printf("%10s %10s %10s", "Edition", "Category", "Rates");
+    //     System.out.println();
+    //     for(int i=0;i<New_edition_ID.size();i++)
+    //     {
+    //         for(int j=0;j<New_edition_ID.size();j++)
+    //         {
+    //             System.out.printf("%10s","");
+    //             System.out.printf("%1s",New_edition_ID.get(i).get(j));
+    //             System.out.printf("%20s","");
+    //             System.out.printf("%1s",New_category_ID.get(i).get(j));
+    //             System.out.printf("%10s","");
+    //             System.out.printf("%1s",New_Rates.get(i).get(j));
+    //             System.out.println();
+    //         }
+    //     }
+    // }
     public static void main(String[] args) 
     {
         Scanner read=new Scanner(System.in);
@@ -46,7 +87,7 @@ public class example
             n_of_rates+=n_of_rates;
             System.out.println();   
         }
-        // combine(editionID,categoryID,Rates);
+        combine(editionID,categoryID,Rates);
         // printcombination();
         read.close();
     }    
