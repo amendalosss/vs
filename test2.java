@@ -3,15 +3,15 @@
 import java.util.*;
 public class test2 {
 	public static void main(String args[]) {
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("Input number of books : ");
-//		int n = sc.nextInt();
-//		for(int i=0;i<n;i++)
-//		{
-//			System.out.println("Enter Edition, Category, Rate of book");
-//			int b1 =
-//		}
-//		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Input number of books : ");
+		int n = sc.nextInt();
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("Enter Edition, Category, Rate of book");
+			int b1 =
+		}
+		
 		
 		
 		
