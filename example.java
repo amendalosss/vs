@@ -5,26 +5,29 @@ public class example
     static List<List<Integer>> New_category_ID = new ArrayList<List<Integer>>();
     static List<List<Integer>> New_Rates = new ArrayList<List<Integer>>();
 
-    public static void combine(List<Integer> edID,List<Integer> catID,List<Integer> rates) 
-    {
-        int j=0;
-        int i=0;
-        for (i = 0; i <edID.size();i++) 
-        {
-            for(j=1; j<=edID.size();j++)
-            {
-                if(edID.get(i)==edID.get(j))
-                {
-                    New_edition_ID.get(i).add(i,edID.get(j));
-                    New_category_ID.get(i).add(i,catID.get(i));
-                    for(int k=0;k<rates.size();k++)
-                    {
-                        New_Rates.get(i).add(i,rates.get(k));
-                    }
-                }    
-            }
-        }
-    }
+    // public static void combine(List<Integer> edID,List<Integer> catID,List<Integer> rates) 
+    // {
+    //     int j=0;
+    //     int i=0;
+    //     for (i = 0; i <rates.size();i++) 
+    //     {
+    //         for(j=i+1; j<=rates.size();j++)
+    //         {
+    //             if(edID.get(i)==edID.get(j))
+    //             {
+    //                 New_edition_ID.add(new ArrayList<Integer>());
+    //                 New_edition_ID.get(i).add(j,edID.get(j));
+    //                 New_category_ID.add(new ArrayList<Integer>());
+    //                 New_category_ID.get(i).add(j,catID.get(j));
+    //                 for(int k=0;k<rates.size();k++)
+    //                 {
+    //                     New_Rates.add(new ArrayList<Integer>());
+    //                     New_Rates.get(i).add(j,rates.get(k));
+    //                 }
+    //             }    
+    //         }
+    //     }
+    // }
 
     // public static void printcombination() 
     // {
@@ -51,7 +54,7 @@ public class example
        
         List<Integer> editionID =new ArrayList<Integer>();
         List<Integer> categoryID =new ArrayList<Integer>();
-        List<Integer> Rates =new ArrayList<Integer>();
+        List<List<Integer>> Rates =new ArrayList<List<Integer>>();
 
         System.out.println("Enter the length of data:");
         int n=read.nextInt();
@@ -66,7 +69,8 @@ public class example
             categoryID.add(read.nextInt());
             for(int j=0;j<n_of_rates;j++)
             {
-                Rates.add(read.nextInt());
+                Rates.add(new ArrayList<>());
+                Rates.get(i).add(j,read.nextInt());
             }
             System.out.println();
         }
@@ -77,17 +81,27 @@ public class example
         for (int i=0; i <n ; i++) 
         {
             System.out.printf("%10s %10s",editionID.get(i),categoryID.get(i));
-            for(int j=counter;j<n_of_rates;j++)
+            // for(List<Integer> x:Rates)
+            // {
+            //     for(int y:x)
+            //     System.out.printf("%10s",y);
+            //     System.out.println();
+            //     System.out.printf("%21s","");
+            // }
+            for(int j=0;j<Rates.get(j).size();j++)
             {
-                System.out.printf("%10s",Rates.get(j));
-                System.out.println();
-                System.out.printf("%21s","");
+                for(int k=0;k<Rates.get(j).size();k++)
+                {
+                    System.out.printf("%10s",Rates.get(j).get(k));
+                    System.out.println();
+                    System.out.printf("%21s","");
+                }
             }
             counter=n_of_rates;
             n_of_rates+=n_of_rates;
             System.out.println();   
         }
-        combine(editionID,categoryID,Rates);
+        // combine(editionID,categoryID,Rates);
         // printcombination();
         read.close();
     }    
