@@ -1,7 +1,5 @@
-
-
 import java.util.*;
-public class test2 {
+public class e{
 	public static void main(String args[]) 
     {
 	 Scanner read=new Scanner(System.in);
@@ -39,21 +37,16 @@ public class test2 {
             }
             System.out.println();
         }
-		
-		
-		
-		
-		
-		
-		
-		
+
+
+
 		int[][] books = {{1,2,3},{1,2,4},{2,1,5},{2,1,6},{1,1,7},{1,1,8},{2,2,9},{2,2,10}};
 		Map<Integer,Map<Integer,List<Integer>>> h1 = new HashMap<>();
-		for(int[] b:books)
+		for(Integer b:editionID)
 		{
-			h1.putIfAbsent(b[0], new HashMap<>());
-			h1.get(b[0]).putIfAbsent(b[1],new ArrayList<>());
-			h1.get(b[0]).get(b[1]).add(b[2]);
+			h1.putIfAbsent(b, new HashMap<>());
+			h1.get(b).putIfAbsent(categoryID.get(editionID.indexOf(b)),new ArrayList<List>());
+			h1.get(b).get(editionID.indexOf(b)).add();
 			System.out.println(h1);
 		}
 		for(int n:h1.keySet())
