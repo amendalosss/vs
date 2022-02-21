@@ -3,14 +3,41 @@
 import java.util.*;
 public class test2 {
 	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Input number of books : ");
-		int n = sc.nextInt();
-		for(int i=0;i<n;i++)
-		{
-			System.out.println("Enter Edition, Category, Rate of book");
-			int b1 =
-		}
+	 Scanner read=new Scanner(System.in);
+        List<Integer> editionID =new ArrayList<Integer>();
+        List<Integer> categoryID =new ArrayList<Integer>();
+        List<List<Integer>> Rates =new ArrayList<List<Integer>>();
+        System.out.println("Enter the length of data:");
+        int n=read.nextInt();
+
+        System.out.println("Enter the rates:");
+        int n_of_rates=read.nextInt();
+
+        System.out.println("Enter the data in sequence of editionID, categoryID, Rates:");
+        for(int i=0;i<n;i++)
+        {
+            editionID.add(read.nextInt());
+            categoryID.add(read.nextInt());
+            Rates.add(new ArrayList<>());
+            for(int j=0;j<n_of_rates;j++)
+            {
+                Rates.get(i).add(j,read.nextInt());
+            }
+            System.out.println();
+        }
+        System.out.printf("%10s %10s %10s", "Edition", "Category", "Rates");
+        System.out.println();
+        for(int i=0;i<n;i++)
+        {
+            System.out.printf("%10s %10s",editionID.get(i),categoryID.get(i));
+            for(int j=0;j<n_of_rates;j++)
+            {
+                System.out.printf("%10s",Rates.get(i).get(j));
+                System.out.println();
+                System.out.printf("%21s","");
+            }
+            System.out.println();
+        }
 		
 		
 		
